@@ -12,7 +12,7 @@ body {
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: black;
     position: fixed;
@@ -24,7 +24,6 @@ body {
 }
 
 .nav-logo {
-    margin-left: 5rem;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
@@ -37,6 +36,7 @@ body {
 
 .navbar li {
     display: inline-block;
+    margin-right: 30px;
 }
 
 .navbar a {
@@ -44,28 +44,70 @@ body {
     color: white;
 }
 
+.auth-links a {
+    color: grey;
+}
+
 .body {
     background-color: #2940a8;
     color: #1ED760;
     background-image: url(./static/bursts.svg);
-    background-position-x: -30rem;
+    background-position-x: -25rem;
     height: 50rem;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.body-content {
-    position: absolute;
-    top: 12rem;
-    width: 100%;
+.body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
 }
 
-.title {
-    font-size: 8rem;
+.body-container h1 {
+    font-size: 9rem;
+
+    &:nth-child(1) {
+        align-self: flex-start;
+    }
+
+    &:nth-child(2) {
+        align-self: flex-end;
+        margin-top: -25px;
+    }
+}
+
+.body-container p {
+    margin-top: 25px;
+}
+
+.body-button {
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    width: 15rem;
+    border-radius: 30px;
+    border: none;
+    background-color: #1ED760;
+    color:  #2940a8;
+    height: 45px;
+    font-size: 16px;
+    margin-top: 25px;
+}
+
+.footer {
+    height: 33rem;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container {
     width: 80%;
-    text-align: left;
-    margin-left: 15rem;
-}
-
-.title p:nth-child(2) {
-    text-align: center;
+    height: 80%;
+    outline: orange 3px solid;
+    position: relative;
 }
