@@ -1,25 +1,36 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className='navbar'>
+      <div className='nav-logo'><i className='fa fa-spotify'></i>Spotify</div>
+      <nav>
+        <ul>
+          <li>
+            <a href='#'>Home</a>
+          </li>
+          <li>
+            <a href='#'>Home</a>
+          </li>
+          <li>
+            <a href='#'>Home</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+    <div className='body'>
+      <div className='body-content'>
+        <div className='title'>
+          <p>Another</p>
+          <p>Spotify</p>
+        </div>
+      </div>
+    </div>
+  </>
   );
 }
 

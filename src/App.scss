@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import '../node_modules/font-awesome/scss/font-awesome.scss';
+
+* {
+    margin: 0;
+}
+
+body {
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    z-index: 500;
+    color: white;
+}
+
+.nav-logo {
+    margin-left: 5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.fa-spotify {
+    font-size: 3rem;
+    margin-right: 10px;
+}
+
+.navbar li {
+    display: inline-block;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.body {
+    background-color: #2940a8;
+    color: #1ED760;
+    background-image: url(./static/bursts.svg);
+    background-position-x: -30rem;
+    height: 50rem;
+    position: relative;
+}
+
+.body-content {
+    position: absolute;
+    top: 12rem;
+    width: 100%;
+}
+
+.title {
+    font-size: 8rem;
+    width: 80%;
+    text-align: left;
+    margin-left: 15rem;
+}
+
+.title p:nth-child(2) {
+    text-align: center;
+}
