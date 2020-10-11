@@ -1,0 +1,34 @@
+.gray {
+    color: #CCC !important;
+    &:hover {
+        color: #1ED760 !important;
+    }
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    z-index: 500;
+    color: white;
+
+    & li {
+        display: inline-block;
+        margin-right: 30px;
+    }
+
+    & a {
+        text-decoration: none;
+        color: white;
+    
+        &:hover {
+            color: #1ED760;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & p {
+        margin-right: 10px;
+    }
+}
+
+.footer {
+    height: 33rem;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container {
+    width: 75%;
+    height: 75%;
+    position: relative;
+}
+
+.footer-legal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    & a {
+        text-decoration: none;
+        color: grey;
+        margin-right: 10px;
+        font-size: 12px;
+        font-weight: 600;
+
+        &:hover {
+            color: #1ED760;
+        }
+    }
+}
+
+.footer-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.socials {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social {
+    background-color: #222326;
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+
+    &:hover {
+        color: #1ED760;
+    }
+}
+
+.footer-copy {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 12px;
+    font-weight: 600;
+    color: gray;
+    line-height: 25px;
+}
+
+.footer-table {
+    font-weight: 600;
+    position: absolute;
+    top: 2rem;
+    left: 12rem;
+    width: 50%;
+    color: white;
+    text-align: left;
+
+    & table {
+        width: 100%;
+        font-size: small;
+        
+        & thead {
+            color: grey;
+            text-transform: uppercase;
+            font-style: bold;
+        }
+
+        & td {
+            height: 2.5rem;
+        }
+    }
+}
