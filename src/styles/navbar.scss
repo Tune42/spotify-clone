@@ -33,17 +33,6 @@
     }
 }
 
-.logo {
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-}
-
-.fa-spotify {
-    font-size: 3rem;
-    margin-right: 10px;
-}
-
 .hamburger {
     display: none;
 }
@@ -54,12 +43,8 @@
         justify-content: space-around;
     }
 
-    .fa-spotify {
-        font-size: 2rem;
-    }
-
     .logo {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     nav {

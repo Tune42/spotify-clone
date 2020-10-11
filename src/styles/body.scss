@@ -4,10 +4,14 @@
     background-image: url(../assets/bursts.svg);
     background-size: 175%;
     background-position: 46% 4%;
-    height: 100vh;
+    height: 52rem;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media(max-width: 1000px) {
+        height: 46rem;
+    }
 }
 
 .body-container {
@@ -51,6 +55,10 @@
     }
 }
 
+.padding {
+    height: 20rem;
+}
+
 .mobile-title {
     display: none;
 }
@@ -79,6 +87,12 @@
         & p {
             margin-top: 25px;
         }
+    }
+}
+
+@media(max-width: 1000px) {
+    body {
+        height: 20rem;
     }
 }
 

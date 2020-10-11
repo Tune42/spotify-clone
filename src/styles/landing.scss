@@ -6,3 +6,24 @@ body {
     font-family: Montserrat, Helvetica, Arial, sans-serif;
     font-weight: 700;
 }
+
+.logo {
+    font-size: 16px !important;
+    display: flex;
+    align-items: center;
+}
+
+.fa-spotify {
+    margin-right: 5px;
+    font-size: 2rem !important;
+}
+
+@media(min-width: 1000px) {
+    .logo {
+        font-size: 1.5rem !important;
+    }
+
+    .fa-spotify {
+        font-size: 3rem !important;
+    }
+}
