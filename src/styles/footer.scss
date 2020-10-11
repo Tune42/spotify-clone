@@ -68,6 +68,7 @@
 
     &:hover {
         color: #1ED760;
+        cursor: pointer;
     }
 }
 
@@ -105,6 +106,11 @@
 
         & td {
             height: 2.5rem;
+        }
+
+        & tbody td:hover {
+            color: #1ED760;
+            cursor: pointer;
         }
     }
 }

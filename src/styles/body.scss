@@ -2,8 +2,9 @@
     background-color: #2940a8;
     color: #1ED760;
     background-image: url(../assets/bursts.svg);
-    background-position-x: -25rem;
-    height: 50rem;
+    background-size: 175%;
+    background-position: 46% 4%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,4 +45,63 @@
     height: 45px;
     font-size: 16px;
     margin-top: 25px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.mobile-title {
+    display: none;
+}
+
+@media(max-width: 1200px) {
+    .body {
+        background-image: url(../assets/bursts-tablet.svg);
+        background-size: 153%;
+        background-position: right 40% center;
+    }
+
+    .body-container {
+        & h1 {
+            font-size: 7rem;
+        
+            &:nth-child(1) {
+                align-self: center;
+            }
+        
+            &:nth-child(2) {
+                align-self: center;
+                margin-top: -25px;
+            }
+        }
+    
+        & p {
+            margin-top: 25px;
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    .body {
+        background-image: url(../assets/bursts-mobile.svg);
+        background-size: 195%;
+        background-position: top 25% center;
+    }
+
+    .body-container {
+        width: 90%;
+        text-align: center;
+        & h1 {
+            font-size: 3rem;
+        }
+    }
+
+    .body-title {
+        display: none;
+    }
+
+    .mobile-title {
+        display: contents;
+    }
 }

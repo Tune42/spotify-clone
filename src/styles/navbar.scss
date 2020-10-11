@@ -1,5 +1,5 @@
 .gray {
-    color: #CCC !important;
+    color: #AAA !important;
     &:hover {
         color: #1ED760 !important;
     }
@@ -30,5 +30,65 @@
         &:hover {
             color: #1ED760;
         }
+    }
+}
+
+.logo {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.fa-spotify {
+    font-size: 3rem;
+    margin-right: 10px;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media(max-width: 1000px) {
+    .navbar {
+        height: 3.5rem;
+        justify-content: space-around;
+    }
+
+    .fa-spotify {
+        font-size: 2rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: contents;
+    }
+
+    .fa-bars {
+        font-size: 1.5rem;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    .navbar {
+        justify-content: space-between;
+    }
+
+    .fa-bars {
+        margin-right: 15px;
+    }
+
+    .fa-spotify {
+        margin-left: 15px;
     }
 }
