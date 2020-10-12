@@ -1,12 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../styles/interface.scss';
-import spotifyWrapper from 'spotify-web-api-js';
 
-const API = new spotifyWrapper();
 
-const Interface = ({hashParam}) => {
-    API.setAccessToken(hashParam['#access_token']);
+const Interface = ({API}) => {
     
+    useEffect(() => {
+        window.history.replaceState({}, document.title, ".");
+    }, []);
+    
+    API.getMe()
+    .then(res => {
+        console.log(res);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+
     return(
         <h1>I am your interface now.</h1>
     )

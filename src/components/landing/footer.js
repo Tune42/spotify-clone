@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import '../styles/footer.scss';
+import '../../styles/footer.scss';
 
 const Footer = () => {
     return(
