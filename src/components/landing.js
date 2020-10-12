@@ -4,13 +4,15 @@ import '../styles/landing.scss';
 import Navbar from './navbar';
 import Body from './body';
 import Footer from './footer';
+import Sidebar from './sidebar';
 
-const Landing = () => {
+const Landing = ({authLink}) => {
     const [sidebar, setSidebar] = useState(false);
     return(
         <div className={sidebar ? 'scroll' : ''}>
-            <Navbar setSidebar={setSidebar} sidebar={sidebar} />
-            <Body />
+            <Navbar setSidebar={setSidebar} sidebar={sidebar} authLink={authLink} />
+            { sidebar && <Sidebar authLink={authLink} />}
+            <Body authLink={authLink} />
             <Footer />
         </div>
     )
