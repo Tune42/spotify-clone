@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import '../../styles/sidebar.scss';
 
-const Sidebar = () => {
+const Sidebar = ({authLink}) => {
     return(
         <>
             <div className='sidebar'>
@@ -13,7 +14,7 @@ const Sidebar = () => {
                         <hr />
                         <br />
                         <a href='#'>Sign up</a>
-                        <a href='#'>Log in</a>
+                        <a href={authLink}>Log in</a>
                     </div>
                     <div className='logo'><i className='fa fa-spotify'></i>Spotify</div>
                 </div>

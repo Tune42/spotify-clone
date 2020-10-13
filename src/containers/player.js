@@ -1,13 +1,40 @@
+/* eslint-disable no-lone-blocks */
 /* eslint-disable no-unused-vars */
 import React, {useState} from 'react';
 import Interface from './interface';
 import {Redirect} from 'react-router-dom';
 import spotifyWrapper from 'spotify-web-api-js';
+import { AppState } from '../contexts';
+
+
+const initialState = {
+    user: null,
+    playlists: [],
+    playing: false,
+    item: null
+}
+
+const reducer = (state, action) => {
+
+{/* Nice for debugging */}
+    console.log(action);
+{/* Nice for debugging */}
+
+    switch(action.type) {
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
+            }
+        default:
+            return state;
+    }
+}
+
+const API = new spotifyWrapper();
 
 const Player = (props) => {
     // console.log(props);
-    const API = new spotifyWrapper();
-
     let hashParam = {};
     props.location.hash.split('&').forEach(param => {
         const pair = param.split('=');
@@ -21,7 +48,9 @@ const Player = (props) => {
     }
 
     return(
-        <Interface API={API} />
+        <AppState initialState={initialState} reducer={reducer}>
+            <Interface API={API} />
+        </AppState>
     )
 }
 

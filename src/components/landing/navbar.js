@@ -2,7 +2,7 @@
 import React from 'react';
 import '../../styles/navbar.scss';
 
-const Navbar = ({setSidebar, sidebar}) => {
+const Navbar = ({setSidebar, sidebar, authLink}) => {
 
   let icon = sidebar ? <i style={{fontSize:'28px'}}className='fa fa-times'></i> : <i className='fa fa-bars'></i>;
 
@@ -28,7 +28,7 @@ const Navbar = ({setSidebar, sidebar}) => {
               <a className='gray' href='#'>Sign Up</a>
             </li>
             <li>
-              <a className='gray' href="#">Log In</a>
+              <a className='gray' href={authLink}>Log In</a>
             </li>
           </ul>
         </nav>
