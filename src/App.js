@@ -3,7 +3,7 @@
 import React from 'react';
 import './App.scss';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import Landing from './components/landing/landing';
+import Landing from './components/landing/landing/landing';
 import Player from './containers/player';
 import authLink from './private';
 

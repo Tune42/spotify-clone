@@ -1,7 +1,7 @@
 .body {
     background-color: #2940a8;
     color: #1ED760;
-    background-image: url(../assets/bursts.svg);
+    background-image: url(../../../assets/bursts.svg);
     background-size: 175%;
     background-position: 46% 4%;
     height: 52rem;
@@ -49,7 +49,7 @@
 
 @media(max-width: 1200px) {
     .body {
-        background-image: url(../assets/bursts-tablet.svg);
+        background-image: url(../../../assets/bursts-tablet.svg);
         background-size: 153%;
         background-position: right 40% center;
     }
@@ -82,7 +82,7 @@
 
 @media(max-width: 768px) {
     .body {
-        background-image: url(../assets/bursts-mobile.svg);
+        background-image: url(../../../assets/bursts-mobile.svg);
         background-size: 195%;
         background-position: top 25% center;
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/landing-button.scss';
+import './landing-button.scss';
 
 const LandingButton = () => {
     return(

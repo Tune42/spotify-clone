@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import '../../styles/navbar.scss';
+import './navbar.scss';
 
 const Navbar = ({setSidebar, sidebar, authLink}) => {
 

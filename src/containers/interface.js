@@ -1,6 +1,7 @@
+/* eslint-disable no-empty-pattern */
 import React, {useEffect} from 'react';
-import '../styles/interface.scss';
 import { useAppStateValue } from '../contexts';
+import Sidebar from '../components/player/sidebar/sidebar';
 
 
 const Interface = ({API}) => {
@@ -22,9 +23,9 @@ const Interface = ({API}) => {
     }, [API, dispatch]);
     
     return(
-        <div className='interface'>
-            <h1>I am your interface now.</h1>
-        </div>
+        <>
+            <Sidebar />
+        </>
     )
 }
 
