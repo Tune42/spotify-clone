@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import './navbar.scss';
+import styles from './navbar.scss';
 
 const Navbar = ({setSidebar, sidebar, authLink}) => {
 
@@ -9,7 +9,7 @@ const Navbar = ({setSidebar, sidebar, authLink}) => {
   return(
     <>
       <div className='navbar'>
-        <div className='logo'><i className='fa fa-spotify'></i>Spotify</div>
+        <div className='logo'><i className='fa fa-spotify spotify'></i>Spotify</div>
         <div></div>
         <div onClick={() => setSidebar(!sidebar)} className='hamburger'>{icon}</div>
         <nav>

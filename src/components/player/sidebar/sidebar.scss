@@ -1,0 +1,19 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 230px;
+    height: 90vh;
+    background-color: black;
+    color: white;
+}
+
+.menu-playlist {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
