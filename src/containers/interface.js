@@ -1,7 +1,7 @@
 /* eslint-disable no-empty-pattern */
 import React, {useEffect} from 'react';
 import { useAppStateValue } from '../contexts';
-import Sidebar from '../components/player/sidebar/sidebar';
+import Menu from '../components/player/menu/menu';
 import Controls from '../components/player/controls/controls';
 import './interface.scss'
 
@@ -26,7 +26,7 @@ const Interface = ({API}) => {
     
     return(
         <div className='interface'>
-            <Sidebar />
+            <Menu />
             <Controls />
         </div>
     )

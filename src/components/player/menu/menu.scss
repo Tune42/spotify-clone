@@ -1,0 +1,54 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding-left: 24px;
+    width: 230px;
+    height: 90vh;
+    background-color: black;
+    color: white;
+    padding-top: 24px;
+}
+
+.menu-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+
+    & i {
+        font-size: 3rem !important;
+    }
+}
+
+.menu-item {
+    color: #b3b3b3;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 90%;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: .8rem;
+
+    & i {
+        margin-right: 15px;
+        font-size: 1.5rem;
+    }
+}
+
+.selected {
+    background-color: #282828;
+    color: white;
+    padding-left: 10px;
+}
+
+.menu-playlist {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
