@@ -43,12 +43,38 @@
     padding-left: 10px;
 }
 
+.menu-playlist-title {
+    text-transform: uppercase;
+    font-size: .75rem;
+    font-weight: 700;
+    color: #b3b3b3;
+    letter-spacing: 1.2px;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+.menu-playlist-button {
+    display: flex;
+    align-items: center;
+    color: #b3b3b3;
+    margin-bottom: 10px;
+}
+
 .menu-playlist {
-    height: 40%;
+    color: #b3b3b3;
+    font-size: .8rem;
+    font-weight: 500;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-color: grey;
+    align-items: flex-start;
+    overflow: auto;
+    border-top: 1px solid;
+    height: 300px;
+}
+
+.playlist {
+    padding-top: 8px;
+    padding-bottom: 8px;
 }

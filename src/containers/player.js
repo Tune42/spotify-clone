@@ -15,6 +15,7 @@ class Player extends React.Component {
             const pair = param.split('=');
             hashParam[pair[0]] = pair[1];
         });
+        API.setAccessToken(hashParam['#access_token'])
         this.state = {
             token: hashParam['#access_token']
         }

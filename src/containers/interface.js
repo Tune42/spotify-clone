@@ -1,15 +1,18 @@
 /* eslint-disable no-empty-pattern */
-import React from 'react';
+import React, {useEffect} from 'react';
 import Menu from '../components/player/menu/menu';
 import Controls from '../components/player/controls/controls';
-import './interface.scss'
 
+const Interface = ({API}) => {
 
-const Interface = () => {
+    useEffect(() => {
+        window.history.replaceState({}, document.title, "/player");
+    })
+
     return(
-        <div className='interface'>
-            <Menu />
-            <Controls />
+        <div style={{position: "relative"}}>
+            <Menu API={API} />
+            <Controls API={API} />
         </div>
     )
 }
