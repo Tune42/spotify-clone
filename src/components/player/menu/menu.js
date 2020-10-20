@@ -2,18 +2,21 @@ import React, {useState, useEffect} from 'react';
 import './menu.scss';
 
 const Sidebar = ({API}) => {
-    const [playlists, setPlaylists] = useState(<h3>Playlists</h3>)
+    const [playlists, setPlaylists] = useState(null)
 
     useEffect(() => {
-        API.getUserPlaylists()
-        .then(res => {
-            setPlaylists(res.items.map(playlist => {
-                return <div className="playlist">{playlist.name}</div>
-            }))
-        })
-        .catch(err => {
-            console.log(err)
-        })
+        if (playlists === null) {
+            API.getUserPlaylists()
+            .then(res => {
+                console.log(res)
+                setPlaylists(res.items.map(playlist => {
+                    return <div key={'playlist' + playlist.name} className="playlist">{playlist.name}</div>
+                }))
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
     })
     
     return(
@@ -25,6 +28,7 @@ const Sidebar = ({API}) => {
             <div className='menu-playlist-title'>Playlists</div>
             <div className='menu-playlist-button'><i className="fa fa-plus mr-10"></i>Create Playlist</div>
             <div className='menu-playlist-button'><i className="fa fa-thumbs-up mr-10"></i>Liked Songs</div>
+            <hr className='divider' />
             <div className="menu-playlist">
                 {playlists}
             </div>

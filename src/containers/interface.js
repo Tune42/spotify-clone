@@ -2,6 +2,7 @@
 import React, {useEffect} from 'react';
 import Menu from '../components/player/menu/menu';
 import Controls from '../components/player/controls/controls';
+import './interface.scss';
 
 const Interface = ({API}) => {
 
@@ -10,8 +11,11 @@ const Interface = ({API}) => {
     })
 
     return(
-        <div style={{position: "relative"}}>
-            <Menu API={API} />
+        <div className='interface'>
+            <div style={{display: "flex"}}>
+                <Menu API={API} />
+                <h1>Content</h1>
+            </div>
             <Controls API={API} />
         </div>
     )
