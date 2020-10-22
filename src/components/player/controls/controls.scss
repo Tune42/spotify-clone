@@ -1,10 +1,42 @@
 .controls {
     background-color: #282828;
     min-height: 90px;
+    min-width: 768px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    color: white;
+    color: #b3b3b3;
     justify-self: flex-end;
+
+    & .fa:hover {
+        color: white;
+    }
+}
+
+.mr-10 {
+    margin-right: 20px;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+    margin-left: 25px;
+    min-width: 32%;
+    justify-content: flex-start;
+}
+
+.mid-section {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    min-width: 32%;
+    justify-content: space-around;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    justify-self: flex-end;
+    min-width: 32%;
+    justify-content: flex-end;
 }

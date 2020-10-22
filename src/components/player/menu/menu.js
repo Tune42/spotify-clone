@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import './menu.scss';
 
-const Sidebar = ({API}) => {
+const Menu = ({API}) => {
     const [playlists, setPlaylists] = useState(null)
 
     useEffect(() => {
         if (playlists === null) {
             API.getUserPlaylists()
             .then(res => {
-                console.log(res)
                 setPlaylists(res.items.map(playlist => {
                     return <div key={'playlist' + playlist.name} className="playlist">{playlist.name}</div>
                 }))
@@ -36,4 +35,4 @@ const Sidebar = ({API}) => {
     )
 }
 
-export default Sidebar;
+export default Menu;
