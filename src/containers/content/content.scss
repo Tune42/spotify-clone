@@ -1,0 +1,30 @@
+.content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: papayawhip;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background:black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color:#b3b3b3;
+        &:hover {
+            background: papayawhip;
+        }
+    }
+}
+
+
+
+.loading {
+    margin: 0 auto;
+    align-self: center;
+}

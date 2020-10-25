@@ -60,9 +60,11 @@ class Player extends React.Component {
                     })
                 }
                 if (this.state.contentState === null) {
-                    this.setState({
-                        contentState: state.context.uri,
-                    })
+                    if (this.state.contentState !== state.context.uri) {
+                        this.setState({
+                            contentState: state.context.uri,
+                        })
+                    }
                 }
             });
             
