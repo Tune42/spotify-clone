@@ -1,0 +1,23 @@
+.track-table {
+    margin: 40px auto;
+    max-width: 95%;
+    overflow: auto;
+}
+
+tr:hover {
+    & td{
+        color: #1ED760;
+    }
+}
+
+.MuiTable-stickyHeader {
+    & td{
+        color: white;
+    }
+}
+
+.MuiTableCell-stickyHeader {
+    background-color: #181818 !important;
+    color: white !important;
+    font-weight: 600 !important;
+}

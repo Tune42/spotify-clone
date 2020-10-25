@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './content.scss'
 import CircularProgress from '@material-ui/core/CircularProgress';
+import TrackTable from '../../components/player/content/tracktable';
 
 const Content = ({API, contextURI}) => {
     const [content, setContent] = useState(
@@ -35,28 +36,7 @@ const Content = ({API, contextURI}) => {
                                 <p>{data.description}</p>
                             </div>
                         </div>
-                        <table className='track-table'>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th width="40%">Title</th>
-                                    <th width="40%">Album</th>
-                                    <th>Duration</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {data.tracks.map((row, index) => {
-                                    return(
-                                        <tr>
-                                            <td>{index + 1}</td>
-                                            <td>{row.track.name}</td>
-                                            <td>{row.track.album.name}</td>
-                                            <td>{row.track.duration_ms}</td>
-                                        </tr>
-                                    )
-                                })}
-                            </tbody>
-                        </table>
+                        <TrackTable data={data} />
                     </div>
                 ]);
             }).catch(err => console.log(err));

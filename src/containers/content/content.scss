@@ -42,26 +42,3 @@
     margin: 0 auto;
     align-self: center;
 }
-
-.track-table {
-    margin: 40px auto;
-    max-width: 95%;
-    overflow: auto;
-    font-weight: 400;
-}
-
-td {
-    overflow: hidden;
-    text-align: center;
-    padding: 5px;
-}
-
-th, td {
-    border-bottom: 1px solid #ddd;
-}
-
-tr:hover {
-    background-color: #b3b3b3;
-    color: black;
-    font-weight: 500;
-}
