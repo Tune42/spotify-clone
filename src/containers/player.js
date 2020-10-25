@@ -98,7 +98,7 @@ class Player extends React.Component {
                 <div className='interface'>
                     <div style={{display: "flex"}}>
                         <Menu API={API} />
-                        <Content API={API} currentURI={this.state.contentState} />
+                        <Content API={API} contextURI={this.state.contentState} />
                     </div>
                     <Controls API={API} playerState={this.state.playerState} />
                 </div>

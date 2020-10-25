@@ -1,23 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './content.scss'
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const Content = ({API, currentURI}) => {
+const Content = ({API, contextURI}) => {
 
-    const [content, setContent] = useState(null);
+    const [content, setContent] = useState(
+        [<div className='loading'>
+            <CircularProgress />
+        </div>]
+    );
 
-    if (currentURI === null) {
-        return(
-            <div className='loading'>
-                <CircularProgress />
-            </div>
-        )
-    } else {
-        API.getPlaylist(currentURI.split(':').pop())
-        .then(res => {
-            console.log(res)
-            if (res.uri !== content.uri) {
-                const newContent = {
+    useEffect(() => {
+        if (contextURI !== null) {
+            API.getPlaylist(contextURI.split(':').pop())
+            .then(res => {
+                console.log(res)
+                const data = {
                     description: res.description,
                     id: res.id,
                     art: res.images[0].url,
@@ -26,17 +24,25 @@ const Content = ({API, currentURI}) => {
                     uri: res.uri,
                     tracks: res.tracks.items,
                 }
-                setContent(newContent);
-            }
-        }).catch(err => console.log(err));
+                setContent([
+                    <div className='content-container'>
+                        <div className="title-row">
+                            <div>
+                                <img src={data.art} alt="Cover Art" />
+                            </div>
+                            <div>
+                                <p>{data.type}</p>
+                                <h1>{data.name}</h1>
+                                <p>{data.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                ]);
+            }).catch(err => console.log(err));
+        }
+    }, [API, contextURI]);
 
-        return(
-            <div className='content-container'>
-                <h1>Hello, World!</h1>
-                <h2>Some Stuff</h2>
-            </div>
-        )
-    }
+    return(content);
 }
 
 export default Content;
