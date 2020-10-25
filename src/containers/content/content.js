@@ -3,7 +3,6 @@ import './content.scss'
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Content = ({API, contextURI}) => {
-
     const [content, setContent] = useState(
         [<div className='loading'>
             <CircularProgress />
@@ -27,15 +26,37 @@ const Content = ({API, contextURI}) => {
                 setContent([
                     <div className='content-container'>
                         <div className="title-row">
-                            <div>
-                                <img src={data.art} alt="Cover Art" />
+                            <div className='art'>
+                                <img src={data.art} alt="Cover Art" width='200px' />
                             </div>
-                            <div>
-                                <p>{data.type}</p>
+                            <div className='playlist-info'>
+                                <p style={{fontWeight: 400}}><small>{data.type}</small></p>
                                 <h1>{data.name}</h1>
                                 <p>{data.description}</p>
                             </div>
                         </div>
+                        <table className='track-table'>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th width="40%">Title</th>
+                                    <th width="40%">Album</th>
+                                    <th>Duration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data.tracks.map((row, index) => {
+                                    return(
+                                        <tr>
+                                            <td>{index + 1}</td>
+                                            <td>{row.track.name}</td>
+                                            <td>{row.track.album.name}</td>
+                                            <td>{row.track.duration_ms}</td>
+                                        </tr>
+                                    )
+                                })}
+                            </tbody>
+                        </table>
                     </div>
                 ]);
             }).catch(err => console.log(err));

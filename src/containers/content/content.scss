@@ -1,8 +1,8 @@
 .content-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
+    height: 88vh;
     color: papayawhip;
     overflow: auto;
 
@@ -22,13 +22,46 @@
     }
 }
 
+.art {
+    max-width: 200px;
+    outline: red 1px;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
 .title-row{
     display: flex;
     align-items: flex-end;
 }
 
+.playlist-info {
+    margin-left: 40px;
+}
 
 .loading {
     margin: 0 auto;
     align-self: center;
+}
+
+.track-table {
+    margin: 40px auto;
+    max-width: 95%;
+    overflow: auto;
+    font-weight: 400;
+}
+
+td {
+    overflow: hidden;
+    text-align: center;
+    padding: 5px;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #b3b3b3;
+    color: black;
+    font-weight: 500;
 }
