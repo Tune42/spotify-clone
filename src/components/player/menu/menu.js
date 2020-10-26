@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import './menu.scss';
 
-const Menu = ({API}) => {
+const Menu = ({API, setPlaylist}) => {
     const [playlists, setPlaylists] = useState(null)
 
     useEffect(() => {
         if (playlists === null) {
             API.getUserPlaylists()
             .then(res => {
+                // console.log(res);
                 setPlaylists(res.items.map(playlist => {
-                    return <div key={'playlist' + playlist.name} className="playlist">{playlist.name}</div>
+                    return <div key={'playlist ' + playlist.name} 
+                    className="playlist"
+                    onClick={() => setPlaylist(playlist.uri)}>{playlist.name}</div>
                 }))
             })
             .catch(err => {

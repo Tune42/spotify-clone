@@ -3,43 +3,50 @@ import './content.scss'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TrackTable from '../../components/player/content/tracktable';
 
+const getJSX = (image, type, name, description, tracks) => {
+    return(
+        <div className='content-container'>
+            <div className="title-row">
+                <div className='art'>
+                    <img src={image} alt="Cover Art" width='200px' />
+                </div>
+                <div className='playlist-info'>
+                    <p style={{fontWeight: 400}}><small>{type}</small></p>
+                    <h1>{name}</h1>
+                    <p>{description}</p>
+                </div>
+            </div>
+            <TrackTable tracks={tracks} album={name} />
+        </div>
+    )
+}
+
 const Content = ({API, contextURI}) => {
     const [content, setContent] = useState(
-        [<div className='loading'>
+        <div className='loading'>
             <CircularProgress />
-        </div>]
+        </div>
     );
 
     useEffect(() => {
         if (contextURI !== null) {
-            API.getPlaylist(contextURI.split(':').pop())
-            .then(res => {
-                console.log(res)
-                const data = {
-                    description: res.description,
-                    id: res.id,
-                    art: res.images[0].url,
-                    name: res.name,
-                    type: res.type,
-                    uri: res.uri,
-                    tracks: res.tracks.items,
-                }
-                setContent([
-                    <div className='content-container'>
-                        <div className="title-row">
-                            <div className='art'>
-                                <img src={data.art} alt="Cover Art" width='200px' />
-                            </div>
-                            <div className='playlist-info'>
-                                <p style={{fontWeight: 400}}><small>{data.type}</small></p>
-                                <h1>{data.name}</h1>
-                                <p>{data.description}</p>
-                            </div>
-                        </div>
-                        <TrackTable data={data} />
-                    </div>
-                ]);
-            }).catch(err => console.log(err));
+            const context = contextURI.split(':');
+            if (context[1] === 'playlist') {
+                API.getPlaylist(context[2])
+                .then(res => {
+                    setContent(
+                        getJSX(res.images[0].url, res.type, res.name, res.description, res.tracks.items)
+                    );
+                }).catch(err => console.log(err));
+            } else if (context[1] === 'album') {
+                API.getAlbum(context[2])
+                .then(res => {
+                    // console.log(res);
+                    setContent(
+                        getJSX(res.images[0].url, res.type, res.name, res.artists[0].name, res.tracks.items)
+                    )
+                }).catch(err => console.log(err));
+            }
         }
     }, [API, contextURI]);
 

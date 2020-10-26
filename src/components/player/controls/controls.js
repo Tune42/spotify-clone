@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './controls.scss';
 import Volume from '../controls/volume';
 
-const Controls = ({API, playerState}) => {
+const Controls = ({API, playerState, setPlaylist}) => {
 
     const [playing, setPlaying] = useState(true);
 
@@ -31,10 +31,9 @@ const Controls = ({API, playerState}) => {
             <div className="left-section">
                 <img src={art} alt="Album Art" className='mr-10' />
                 <div className='mr-10'>
-                    <p>{track}</p>
+                    <p onClick={() => setPlaylist(playerState.albumURI)}>{track}</p>
                     <p style={{fontWeight: 400, fontSize: '14px'}}>{artist}</p>
                 </div>
-                {/* <i className="fa fa-heart mr-10"></i> */}
             </div>
             <div className="mid-section">
                 <i className="fa fa-random"></i>
@@ -44,8 +43,7 @@ const Controls = ({API, playerState}) => {
                 <i className="fa fa-repeat"></i>
             </div>
             <div className="right-section">
-                <i className="fa fa-list-ol mr-10"></i>
-                {/* <i className="fa fa-laptop mr-10"></i> */}
+                <i className="fa fa-list-ol mr-10" onClick={() => setPlaylist(playerState.context)}></i>
                 <Volume />
             </div>
         </div>

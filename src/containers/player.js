@@ -22,7 +22,7 @@ class Player extends React.Component {
         this.state = {
             token: hashParam['#access_token'],
             playerState: null,
-            contentState: null,
+            currentPlaylist: null,
         }
     }
 
@@ -52,17 +52,18 @@ class Player extends React.Component {
                     artist: currentTrack.artists[0].name,
                     artistURI: currentTrack.artists[0].uri,
                     track: currentTrack.name,
-                    trackURI: currentTrack.uri
+                    trackURI: currentTrack.uri,
+                    context: state.context.uri
                 }
                 if (this.state.playerState === null || this.state.playerState.track !== playerState.track) {
                     this.setState({
                         playerState: playerState
                     })
                 }
-                if (this.state.contentState === null) {
-                    if (this.state.contentState !== state.context.uri) {
+                if (this.state.currentPlaylist === null) {
+                    if (this.state.currentPlaylist !== state.context.uri) {
                         this.setState({
-                            contentState: state.context.uri,
+                            currentPlaylist: state.context.uri,
                         })
                     }
                 }
@@ -92,15 +93,23 @@ class Player extends React.Component {
         window.history.replaceState({}, document.title, "/player");
     }
 
+    changeContextURI = (newURI) => {
+        if (newURI !== this.state.currentPlaylist) {
+            this.setState({
+                currentPlaylist: newURI
+            })
+        }
+    }
+
     render() {
         if (this.state.token !== undefined) {
             return(
                 <div className='interface'>
                     <div style={{display: "flex"}}>
-                        <Menu API={API} />
-                        <Content API={API} contextURI={this.state.contentState} />
+                        <Menu API={API} setPlaylist={this.changeContextURI} />
+                        <Content API={API} contextURI={this.state.currentPlaylist} />
                     </div>
-                    <Controls API={API} playerState={this.state.playerState} />
+                    <Controls API={API} playerState={this.state.playerState} setPlaylist={this.changeContextURI} />
                 </div>
             )
         } else {
