@@ -1,6 +1,7 @@
 import { TableRow, TableCell } from '@material-ui/core';
 import React, {useState, useEffect} from 'react';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
+import './trackrow.scss';
 
 const convertMS = (ms) => {
     const minutes = Math.floor(ms / 60000);
@@ -12,14 +13,17 @@ const TrackRow = ({index, name, album, duration, playerState, uri, API, contextU
     const [button, setButton] = useState();
     const [label, setLabel] = useState(index + 1);
     const [hover, setHover] = useState(false);
+    const [playing, setPlaying] = useState('');
 
     useEffect(() => {
         if (playerState.trackURI === uri && !playerState.paused) {
-            setButton(<i className='fa fa-pause'></i>)
+            setButton(<i className='fa fa-pause' style={{color: '#1ED760'}}></i>)
             setLabel(<EqualizerIcon fontSize='inherit' htmlColor=' #1ED760' />);
+            setPlaying('playing');
         } else {
             setButton(<i className='fa fa-play' style={{color: '#1ED760'}}></i>);
             setLabel(index + 1);
+            setPlaying('');
         }
     }, [index, playerState, uri]);
 
@@ -34,13 +38,15 @@ const TrackRow = ({index, name, album, duration, playerState, uri, API, contextU
     }
 
     return(
-        <TableRow key={index + " - " + name}
+        <TableRow 
+        key={index + " - " + name}
         onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}>
+        onMouseLeave={() => setHover(false)}
+        >
             <TableCell onClick={() => toggle()}>{hover ? button : label}</TableCell>
-            <TableCell>{name}</TableCell>
-            <TableCell>{album}</TableCell>
-            <TableCell align="center">{convertMS(duration)}</TableCell>
+            <TableCell><span className={playing}>{name}</span></TableCell>
+            <TableCell><span className={playing}>{album}</span></TableCell>
+            <TableCell align="center"><span className={playing}>{convertMS(duration)}</span></TableCell>
         </TableRow> 
     )
 }
