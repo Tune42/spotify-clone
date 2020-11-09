@@ -1,6 +1,6 @@
 import React from 'react';
 import './body.scss';
-import LandingButton from '../landing-button/landing-button';
+import LandingButton from '../landing/landing-button/landing-button';
 
 const Body = ({authLink}) => {
     return(

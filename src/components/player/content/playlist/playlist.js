@@ -1,8 +1,8 @@
 import React from 'react';
 import './playlist.scss';
-import TrackTable from '../track-table/tracktable';
+import TrackTable from './track-table/tracktable';
 
-const Playlist = ({image, type, name, description, tracks}) => {
+const Playlist = ({image, type, name, description, tracks, playerState, API, contextURI}) => {
     return(
         <div className='content-container'>
             <div className="title-row">
@@ -15,7 +15,7 @@ const Playlist = ({image, type, name, description, tracks}) => {
                     <p>{description}</p>
                 </div>
             </div>
-            <TrackTable tracks={tracks} album={name} />
+            <TrackTable tracks={tracks} album={name} playerState={playerState} API={API} contextURI={contextURI} />
         </div>
     )
 }

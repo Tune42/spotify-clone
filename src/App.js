@@ -6,22 +6,20 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Landing from './components/landing/landing/landing';
 import Player from './containers/player';
 import authLink from './private';
-import Card from './components/player/content/card/card';
 
 function App() {
   return (
-    <Card />
-    // <Router>
-    //   <Switch>
+    <Router>
+      <Switch>
 
-    //     <Route exact path='/'>
-    //       <Landing authLink={authLink} />
-    //     </Route>
+        <Route exact path='/'>
+          <Landing authLink={authLink} />
+        </Route>
 
-    //     <Route path='/player' component={Player} /> 
+        <Route path='/player' component={Player} /> 
 
-    //   </Switch>
-    // </Router>
+      </Switch>
+    </Router>
   );
 }
 

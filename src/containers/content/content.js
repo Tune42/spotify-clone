@@ -3,7 +3,7 @@ import './content.scss'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Playlist from '../../components/player/content/playlist/playlist';
 
-const Content = ({API, contextURI}) => {
+const Content = ({API, contextURI, playerState}) => {
     const [content, setContent] = useState(
         <div className='loading'>
             <CircularProgress />
@@ -16,6 +16,7 @@ const Content = ({API, contextURI}) => {
             if (context[1] === 'playlist') {
                 API.getPlaylist(context[2])
                 .then(res => {
+                    // console.log(res);
                     setContent(
                         <Playlist 
                         image={res.images[0].url}
@@ -23,12 +24,16 @@ const Content = ({API, contextURI}) => {
                         name={res.name}
                         description={res.description}
                         tracks={res.tracks.items} 
+                        playerState={playerState}
+                        API={API}
+                        contextURI={contextURI}
                         />
                     );
                 }).catch(err => console.log(err));
             } else if (context[1] === 'album') {
                 API.getAlbum(context[2])
                 .then(res => {
+                    // console.log(res);
                     setContent(
                         <Playlist 
                         image={res.images[0].url}
@@ -36,6 +41,9 @@ const Content = ({API, contextURI}) => {
                         name={res.name}
                         description={res.description}
                         tracks={res.tracks.items} 
+                        playerState={playerState}
+                        API={API}
+                        contextURI={contextURI}
                         />
                     )
                 }).catch(err => console.log(err));
@@ -43,7 +51,7 @@ const Content = ({API, contextURI}) => {
                 console.log('this will be the custom path')
             }
         }
-    }, [API, contextURI]);
+    }, [API, contextURI, playerState]);
 
     return(content);
 }

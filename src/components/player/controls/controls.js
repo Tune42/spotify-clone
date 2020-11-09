@@ -1,30 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './controls.scss';
 import Volume from '../controls/volume';
 
 const Controls = ({API, playerState, setPlaylist}) => {
 
-    const [playing, setPlaying] = useState(true);
-
     const togglePlay = () => {
-        if (playing) {
-            API.pause();
-            setPlaying(false)
-        } else {
+        if (playerState.paused) {
             API.play();
-            setPlaying(true);
+        } else {
+            API.pause();
         }
     }
 
     let playControl;
-    playing ? playControl = 'fa fa-pause' : playControl = 'fa fa-play';
     let art = '';
-    let track = 'track';
-    let artist = 'artist';
+    let track = '';
+    let artist = '';
     if (playerState !== null) {
         art = playerState.smallCover.url;
         track = playerState.track;
         artist = playerState.artist;
+        playerState.paused ? playControl = 'fa fa-play' : playControl = 'fa fa-pause';
     }
     return(
         <div className='controls'>
