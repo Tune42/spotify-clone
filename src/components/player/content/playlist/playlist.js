@@ -10,9 +10,9 @@ const Playlist = ({image, type, name, description, tracks, playerState, API, con
                     <img src={image} alt="Cover Art" width='200px' />
                 </div>
                 <div className='playlist-info'>
-                    <p style={{fontWeight: 400}}><small>{type}</small></p>
-                    <h1>{name}</h1>
-                    <p>{description}</p>
+                    <p style={{fontWeight: 400, textTransform: "uppercase"}}><small>{type}</small></p>
+                    <h1 className='playlist-title'>{name}</h1>
+                    <p className='playlist-description'>{description}</p>
                 </div>
             </div>
             <TrackTable tracks={tracks} album={name} playerState={playerState} API={API} contextURI={contextURI} />

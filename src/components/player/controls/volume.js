@@ -12,25 +12,26 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ContinuousSlider() {
+export default function ContinuousSlider({API}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(30);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    API.setVolume(newValue);
   };
 
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
         <Grid item>
-          <VolumeDown />
+          <VolumeDown onClick={(e) => handleChange(e, 0)} />
         </Grid>
         <Grid item xs>
           <Slider value={value} onChange={handleChange} style={{color: '#1ED760'}} aria-labelledby="continuous-slider" />
         </Grid>
         <Grid item>
-          <VolumeUp />
+          <VolumeUp onClick={(e) => handleChange(e, 100)} />
         </Grid>
       </Grid>
     </div>
