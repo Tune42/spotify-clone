@@ -9,7 +9,7 @@ const Body = ({authLink}) => {
         <h1 className='body-title'>Another</h1>
         <h1 className='body-title'>Spotify</h1>
         <h1 className='mobile-title'>Another Spotify</h1>
-        <p>Millions of songs and podcasts. Partially accessible.</p>
+        <p>Millions of songs and podcasts from Spotify's API.</p>
         <a href={authLink}><LandingButton /></a>
       </div>
       <div className='padding'></div>
