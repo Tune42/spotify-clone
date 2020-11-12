@@ -42,7 +42,7 @@ class Player extends React.Component {
             
             // Playback status updates
             player.addListener('player_state_changed', state => { 
-                // console.log(state)
+                // console.log(state);
                 const currentTrack = state.track_window.current_track;
                 const playerState = {
                     largeCover: currentTrack.album.images[0],
@@ -57,6 +57,7 @@ class Player extends React.Component {
                     paused: state.paused,
                     shuffle: state.shuffle,
                     repeat: state.repeat_mode,
+                    linkedFrom: currentTrack.linked_from_uri,
                 }
                 // if (this.state.playerState === null || this.state.playerState.track !== playerState.track || player) {}
                 this.setState({
@@ -109,9 +110,18 @@ class Player extends React.Component {
                 <div className='interface'>
                     <div style={{display: "flex"}}>
                         <Menu API={API} setPlaylist={this.changeContextURI} />
-                        <Content API={API} contextURI={this.state.contextURI} playerState={this.state.playerState} />
+                        <Content 
+                        API={API} 
+                        contextURI={this.state.contextURI} 
+                        playerState={this.state.playerState}
+                        changeContextURI={this.changeContextURI}
+                        />
                     </div>
-                    <Controls API={API} playerState={this.state.playerState} setPlaylist={this.changeContextURI} />
+                    <Controls 
+                    API={API} 
+                    playerState={this.state.playerState} 
+                    setPlaylist={this.changeContextURI} 
+                    />
                 </div>
             )
         } else {

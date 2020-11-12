@@ -9,14 +9,14 @@ const convertMS = (ms) => {
     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 
-const TrackRow = ({index, name, album, duration, playerState, uri, API, contextURI}) => {
+const TrackRow = ({index, name, album, albumURI, duration, playerState, uri, API, contextURI, changeContextURI}) => {
     const [button, setButton] = useState();
     const [label, setLabel] = useState(index + 1);
     const [hover, setHover] = useState(false);
     const [playing, setPlaying] = useState('');
 
     useEffect(() => {
-        if (playerState.trackURI === uri && !playerState.paused) {
+        if ((playerState.trackURI === uri || playerState.linkedFrom === uri) && !playerState.paused) {
             setButton(<i className='fa fa-pause' style={{color: '#1ED760'}}></i>)
             setLabel(<EqualizerIcon fontSize='inherit' htmlColor=' #1ED760' />);
             setPlaying('playing');
@@ -28,7 +28,7 @@ const TrackRow = ({index, name, album, duration, playerState, uri, API, contextU
     }, [index, playerState, uri]);
 
     const toggle = () => {
-        if (playerState.paused || playerState.trackURI !== uri) {
+        if (playerState.paused || (playerState.trackURI !== uri && playerState.linkedFrom !== uri)) {
             API.play({context_uri: contextURI, offset: {position: index}});
             setButton(<i className='fa fa-pause'></i>)
         } else {
@@ -44,8 +44,8 @@ const TrackRow = ({index, name, album, duration, playerState, uri, API, contextU
         onMouseLeave={() => setHover(false)}
         >
             <TableCell onClick={() => toggle()}>{hover ? button : label}</TableCell>
-            <TableCell><span className={playing}>{name}</span></TableCell>
-            <TableCell><span className={playing}>{album}</span></TableCell>
+            <TableCell><span className={playing + ' link'} onClick={() => toggle()}>{name}</span></TableCell>
+            <TableCell><span className={playing + ' link'} onClick={() => changeContextURI(albumURI)}>{album}</span></TableCell>
             <TableCell align="center"><span className={playing}>{convertMS(duration)}</span></TableCell>
         </TableRow> 
     )

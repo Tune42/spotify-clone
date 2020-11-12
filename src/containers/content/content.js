@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import './content.scss'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Playlist from '../../components/player/content/playlist/playlist';
+import Artist from '../../components/player/content/artist/artist';
 
-const Content = ({API, contextURI, playerState}) => {
+const Content = ({API, contextURI, playerState, changeContextURI}) => {
     const [content, setContent] = useState(
         <div className='loading'>
             <CircularProgress />
@@ -16,7 +17,6 @@ const Content = ({API, contextURI, playerState}) => {
             if (context[1] === 'playlist') {
                 API.getPlaylist(context[2])
                 .then(res => {
-                    // console.log(res);
                     setContent(
                         <Playlist 
                         image={res.images[0].url}
@@ -27,31 +27,37 @@ const Content = ({API, contextURI, playerState}) => {
                         playerState={playerState}
                         API={API}
                         contextURI={contextURI}
+                        changeContextURI={changeContextURI}
                         />
                     );
                 }).catch(err => console.log(err));
             } else if (context[1] === 'album') {
                 API.getAlbum(context[2])
                 .then(res => {
-                    // console.log(res);
                     setContent(
                         <Playlist 
                         image={res.images[0].url}
                         type={res.type}
                         name={res.name}
-                        description={res.description}
+                        description={res.artists[0].name}
+                        artistURI={res.artists[0].uri}
                         tracks={res.tracks.items} 
                         playerState={playerState}
                         API={API}
                         contextURI={contextURI}
+                        changeContextURI={changeContextURI}
                         />
                     )
                 }).catch(err => console.log(err));
-            } else if (context[0] === 'custom') {
-                console.log('this will be the custom path')
+            } else if (context[1] === 'artist') {
+                setContent(
+                    <Artist />
+                )
+            } else {
+                console.log(context);
             }
         }
-    }, [API, contextURI, playerState]);
+    }, [API, changeContextURI, contextURI, playerState]);
 
     return(content);
 }

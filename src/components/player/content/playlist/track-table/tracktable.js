@@ -7,7 +7,7 @@ import TableRow from '@material-ui/core/TableRow';
 import './tracktable.scss';
 import TrackRow from './trackrow/trackrow';
 
-const TrackTable = ({tracks, album, playerState, API, contextURI}) => {
+const TrackTable = ({tracks, album, playerState, API, contextURI, changeContextURI}) => {
     return(
         <Table className='track-table' stickyHeader={true}>
             <TableHead>
@@ -20,29 +20,33 @@ const TrackTable = ({tracks, album, playerState, API, contextURI}) => {
             </TableHead>
             <TableBody>
                 {tracks.map((row, index) => {
-                    if (row.track) {
+                    if (row.track) { // Playlist
                         return(
                             <TrackRow key={index + row.track.name}
                             index={index} 
                             name={row.track.name} 
                             album={row.track.album.name} 
+                            albumURI={row.track.album.uri}
                             duration={row.track.duration_ms}
                             playerState={playerState}
                             uri={row.track.uri}
                             API={API}
-                            contextURI={contextURI} />
+                            contextURI={contextURI}
+                            changeContextURI={changeContextURI} />
                         )
-                    } else {
+                    } else { // Album
                         return(
                             <TrackRow key={index + row.name}
                             index={index} 
                             name={row.name} 
                             album={album} 
+                            albumURI={row.uri}
                             duration={row.duration_ms} 
                             playerState={playerState}
                             uri={row.uri}
                             API={API}
-                            contextURI={contextURI} />
+                            contextURI={contextURI}
+                            changeContextURI={changeContextURI} />
                         )
                     }
                 })}
