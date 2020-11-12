@@ -5,7 +5,6 @@ import './App.scss';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Landing from './components/landing/landing/landing';
 import Player from './containers/player';
-import authLink from './private';
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
       <Switch>
 
         <Route exact path='/'>
-          <Landing authLink={authLink} />
+          <Landing />
         </Route>
 
         <Route path='/player' component={Player} /> 

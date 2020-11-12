@@ -1,8 +1,9 @@
 import React from 'react';
 import './body.scss';
 import LandingButton from '../landing/landing-button/landing-button';
+import authLink from '../../../private';
 
-const Body = ({authLink}) => {
+const Body = () => {
     return(
     <div className='body'>
       <div className='body-container'>

@@ -6,13 +6,13 @@ import Body from '../body/body';
 import Footer from '../footer/footer';
 import Sidebar from '../sidebar/sidebar';
 
-const Landing = ({authLink}) => {
+const Landing = () => {
     const [sidebar, setSidebar] = useState(false);
     return(
         <div className={sidebar ? 'scroll' : ''}>
-            <Navbar setSidebar={setSidebar} sidebar={sidebar} authLink={authLink} />
-            { sidebar && <Sidebar authLink={authLink} />}
-            <Body authLink={authLink} />
+            <Navbar setSidebar={setSidebar} sidebar={sidebar} />
+            { sidebar && <Sidebar />}
+            <Body />
             <Footer />
         </div>
     )

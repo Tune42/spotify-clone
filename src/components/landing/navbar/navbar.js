@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import './navbar.scss';
+import authLink from '../../../private';
 
-const Navbar = ({setSidebar, sidebar, authLink}) => {
+const Navbar = ({setSidebar, sidebar}) => {
 
   let icon = sidebar ? <i style={{fontSize:'28px'}}className='fa fa-times'></i> : <i className='fa fa-bars'></i>;
 
