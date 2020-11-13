@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 * {
+  margin: 0;
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
        -khtml-user-select: none; /* Konqueror HTML */
@@ -13,9 +14,13 @@
                                     supported by Chrome, Edge, Opera and Firefox */
 }
 
-// Utilities
-
-.mr-10 {
-    margin-right: 10px;
+body {
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-weight: 700;
 }
 
+@media(max-width: 1000px) {
+  body {
+      height: 20rem;
+  }
+}

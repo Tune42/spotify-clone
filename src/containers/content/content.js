@@ -5,8 +5,10 @@ import Artist from '../../components/player/content/artist';
 
 const Content = ({API, contextURI, playerState, changeContextURI}) => {
     const [content, setContent] = useState(
-        <div className='loading'>
-            <CircularProgress />
+        <div className='content-container'>
+            <div className='loading'>
+                <CircularProgress />
+            </div>
         </div>
     );
 
@@ -49,20 +51,20 @@ const Content = ({API, contextURI, playerState, changeContextURI}) => {
                     )
                 }).catch(err => console.log(err));
             } else if (context[1] === 'artist') {
+                const artistData = {};
                 API.getArtist(context[2])
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
-                API.getArtistAlbums(context[2], {limit: 50, include_groups: 'album'})
                 .then(res => {
-                    console.log(res);
-                    setContent(
-                        <Artist />
-                    )
+                    artistData['image'] = res.images[0].url;
+                    artistData['name'] = res.name;
                 }).catch(err => console.log(err));
+                API.getArtistAlbums(context[2], {limit: 50, include_groups: 'album', country: 'US'})
+                .then(res => {
+                    artistData['tracks'] = res.items;
+                }).catch(err => console.log(err));
+                setContent(<Artist artistData={artistData} />);
             } else {
                 console.log(context);
             }
-            // document.querySelector('.')
         }
     }, [API, changeContextURI, contextURI, playerState]);
 

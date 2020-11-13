@@ -99,7 +99,8 @@ class Player extends React.Component {
         if (newURI !== this.state.contextURI) {
             this.setState({
                 contextURI: newURI
-            })
+            });
+            document.querySelector('.content-container').scrollTo(0, 0);
         }
     }
 

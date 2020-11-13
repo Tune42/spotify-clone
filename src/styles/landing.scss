@@ -47,63 +47,6 @@
     display: none;
 }
 
-@media(max-width: 1200px) {
-    .body {
-        background-image: url(../assets/bursts-tablet.svg);
-        background-size: 153%;
-        background-position: right 40% center;
-    }
-
-    .body-container {
-        & h1 {
-            font-size: 7rem;
-        
-            &:nth-child(1) {
-                align-self: center;
-            }
-        
-            &:nth-child(2) {
-                align-self: center;
-                margin-top: -25px;
-            }
-        }
-    
-        & p {
-            margin-top: 25px;
-        }
-    }
-}
-
-@media(max-width: 1000px) {
-    body {
-        height: 20rem;
-    }
-}
-
-@media(max-width: 768px) {
-    .body {
-        background-image: url(../assets/bursts-mobile.svg);
-        background-size: 195%;
-        background-position: top 25% center;
-    }
-
-    .body-container {
-        width: 90%;
-        text-align: center;
-        & h1 {
-            font-size: 3rem;
-        }
-    }
-
-    .body-title {
-        display: none;
-    }
-
-    .mobile-title {
-        display: contents;
-    }
-}
-
 .usa {
     font-size: 10px;
     font-weight: 400;
@@ -230,114 +173,6 @@
     margin-right: 15px;
 }
 
-@media(min-width: 768px) {
-    .footer-links-section {
-        flex-direction: row;
-        width: 80%;
-        justify-content: space-between;
-    }
-    .footer-legal-links {
-        width: 70%;
-    }
-}
-
-@media(min-width: 1000px) {
-    .socials {
-        margin-top: 2rem;
-        margin-left: auto;
-    }
-
-    .social {
-        width: 54px;
-        height: 54px;
-        font-size: 1.5rem;
-    }
-
-    .footer-content {
-        margin: 0 auto;
-        min-width: 95%;
-        min-height: 450px;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
-
-    .footer-links-section {
-        width: unset;
-    }
-
-    .footer-links {
-        padding-left: 15px;
-        padding-right: 15px;
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: 50px;
-        line-height: 2.5;
-    }
-
-    .footer-link-header {
-        margin-top: 25px;
-    }
-
-    .footer {
-        min-height: 33.5rem;
-    }
-
-    .footer-legal {
-        margin: 0;
-        padding: 0;
-    }
-
-    .footer-legal-links {
-        & a {
-            font-size: 12px;
-        }
-    }
-
-    .usa {
-        align-self: flex-end;
-        font-size: 12px;
-    }
-
-    .footer-copy {
-        font-size: 12px;
-    }
-}
-
-@media(min-width: 1200px) {
-    .footer-content {
-        min-width: 75%;
-    }
-
-    .socials {
-        margin-left: auto;
-        padding-left: 0;
-    }
-
-    .social {
-        margin-left: 0;
-        margin-right: 10px;
-
-        &:nth-child(3) {
-            margin-right: 0px;
-        }
-    }
-
-    .footer-links {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-}
-
-* {
-    margin: 0;
-}
-
-body {
-    font-family: Montserrat, Helvetica, Arial, sans-serif;
-    font-weight: 700;
-}
-
 .logo {
     font-size: 16px !important;
     display: flex;
@@ -347,16 +182,6 @@ body {
 .fa-spotify {
     margin-right: 5px;
     font-size: 2rem !important;
-}
-
-@media(min-width: 1000px) {
-    .logo {
-        font-size: 1.5rem !important;
-    }
-
-    .fa-spotify {
-        font-size: 3rem !important;
-    }
 }
 
 .scroll {
@@ -423,49 +248,6 @@ body {
     display: none;
 }
 
-@media(max-width: 1000px) {
-    .navbar {
-        height: 3.5rem;
-        justify-content: space-around;
-    }
-
-    .logo {
-        font-size: 1.25rem;
-    }
-
-    nav {
-        display: none;
-    }
-
-    .hamburger {
-        display: contents;
-        position: relative;
-        z-index: 5 !important;
-    }
-
-    .fa-bars {
-        font-size: 1.5rem;
-
-        &:hover{
-            cursor: pointer;
-        }
-    }
-}
-
-@media(max-width: 768px) {
-    .navbar {
-        justify-content: space-between;
-    }
-
-    .fa-bars {
-        margin-right: 15px;
-    }
-
-    .spotify {
-        margin-left: 15px;
-    }
-}
-
 .sidebar {
     position: fixed;
     top: 0;
@@ -522,8 +304,205 @@ body {
     }
 }
 
+@media(min-width: 1200px) {
+    .footer-content {
+        min-width: 75%;
+    }
+
+    .socials {
+        margin-left: auto;
+        padding-left: 0;
+    }
+
+    .social {
+        margin-left: 0;
+        margin-right: 10px;
+
+        &:nth-child(3) {
+            margin-right: 0px;
+        }
+    }
+
+    .footer-links {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .body {
+        background-image: url(../assets/bursts-tablet.svg);
+        background-size: 153%;
+        background-position: right 40% center;
+    }
+
+    .body-container {
+        & h1 {
+            font-size: 7rem;
+        
+            &:nth-child(1) {
+                align-self: center;
+            }
+        
+            &:nth-child(2) {
+                align-self: center;
+                margin-top: -25px;
+            }
+        }
+    
+        & p {
+            margin-top: 25px;
+        }
+    }
+}
+
 @media(min-width: 1000px) {
+    .logo {
+        font-size: 1.5rem !important;
+    }
+
+    .fa-spotify {
+        font-size: 3rem !important;
+    }
+
     .sidebar {
         display: none;
+    }
+
+    .socials {
+        margin-top: 2rem;
+        margin-left: auto;
+    }
+
+    .social {
+        width: 54px;
+        height: 54px;
+        font-size: 1.5rem;
+    }
+
+    .footer-content {
+        margin: 0 auto;
+        min-width: 95%;
+        min-height: 450px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .footer-links-section {
+        width: unset;
+    }
+
+    .footer-links {
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: 50px;
+        line-height: 2.5;
+    }
+
+    .footer-link-header {
+        margin-top: 25px;
+    }
+
+    .footer {
+        min-height: 33.5rem;
+    }
+
+    .footer-legal {
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-legal-links {
+        & a {
+            font-size: 12px;
+        }
+    }
+
+    .usa {
+        align-self: flex-end;
+        font-size: 12px;
+    }
+
+    .footer-copy {
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .navbar {
+        height: 3.5rem;
+        justify-content: space-around;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: contents;
+        position: relative;
+        z-index: 5 !important;
+    }
+
+    .fa-bars {
+        font-size: 1.5rem;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+@media(min-width: 768px) {
+    .footer-links-section {
+        flex-direction: row;
+        width: 80%;
+        justify-content: space-between;
+    }
+    .footer-legal-links {
+        width: 70%;
+    }
+}
+
+@media(max-width: 768px) {
+    .body {
+        background-image: url(../assets/bursts-mobile.svg);
+        background-size: 195%;
+        background-position: top 25% center;
+    }
+
+    .body-container {
+        width: 90%;
+        text-align: center;
+        & h1 {
+            font-size: 3rem;
+        }
+    }
+
+    .body-title {
+        display: none;
+    }
+
+    .mobile-title {
+        display: contents;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+
+    .fa-bars {
+        margin-right: 15px;
+    }
+
+    .spotify {
+        margin-left: 15px;
     }
 }
