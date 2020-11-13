@@ -108,7 +108,7 @@ class Player extends React.Component {
         if (this.state.token !== undefined) {
             return(
                 <div className='interface'>
-                    <div style={{display: "flex"}}>
+                    <div className='not-controls'>
                         <Menu API={API} setPlaylist={this.changeContextURI} />
                         <Content 
                         API={API} 

@@ -1,19 +1,54 @@
 import React, { useState, useEffect } from 'react';
+import Card from './card';
 
-const Artist = ({artistData}) => {
-    const [image, setImage] = useState('');
-    const [name, setName] = useState('');
-    const [tracks, setTracks] = useState('');
-
+const Artist = ({artist, API}) => {
+    const [data, setData] = useState({
+        image: '',
+        name: '',
+    });
+    
     useEffect(() => {
-        setImage(artistData.image);
-        setName(artistData.name);
-        setTracks(artistData.tracks);
-    }, [artistData])
+        const newData = {};
+
+        async function fetchData (artist) {
+            await API.getArtist(artist)
+            .then(res => {
+                newData['image'] = res.images[0].url;
+                newData['name'] = res.name;
+            }).catch(err => console.log(err));
+            await API.getArtistAlbums(artist, {limit: 50, include_groups: 'album', country: 'US'})
+            .then(res => {
+                newData['albums'] = res.items;
+            }).catch(err => console.log(err));
+            setData(newData);
+        }
+
+        fetchData(artist);
+    }, [artist, API]);
+
+    let albums;
+    if (data.albums) {
+        albums = data.albums.map(album => {
+            console.log(album);
+            return <Card />;
+        })
+    }
 
     return(
         <div className='content-container'>
-            <img src={image} alt={name} />
+            <div className="title-row">
+                <div className='art'>
+                    <img src={data.image} alt="Cover Art" width='300px' />
+                </div>
+                <div className='playlist-info'>
+                    <p style={{fontWeight: 400, textTransform: "uppercase"}}>Artist</p>
+                    <h1 className='playlist-title'>{data.name}</h1>
+                </div>
+            </div>
+            <div className="card-category">
+                <div className="card-category-title"><h2>Albums</h2></div>
+                <div className='card-category-items'>{albums}</div>
+            </div>
         </div>
     );
 }

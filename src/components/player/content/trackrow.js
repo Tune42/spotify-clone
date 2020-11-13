@@ -20,7 +20,7 @@ const TrackRow = ({index, name, album, albumURI, duration, playerState, uri, API
             setLabel(<EqualizerIcon fontSize='inherit' htmlColor=' #1ED760' />);
             setPlaying('playing');
         } else {
-            setButton(<i className='fa fa-play' style={{color: '#1ED760'}}></i>);
+            setButton(<i className='fa fa-play'></i>);
             setLabel(index + 1);
             setPlaying('');
         }

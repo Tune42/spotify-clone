@@ -1,9 +1,5 @@
 .interface {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     background-color: #181818;
-    max-width: 100vw;
     max-height: 99vh;
 }
 
@@ -11,8 +7,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 88vh;
-    color: papayawhip;
+    color: ivory;
     overflow: auto;
 
     &::-webkit-scrollbar {
@@ -26,14 +21,19 @@
     &::-webkit-scrollbar-thumb {
         background-color:#b3b3b3;
         &:hover {
-            background: papayawhip;
+            background: ivory;
         }
     }
 }
 
+.not-controls {
+    display: flex;
+    margin: 0;
+    min-height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
+}
+
 .art {
-    max-width: 200px;
-    outline: red 1px;
     margin-left: 40px;
     margin-top: 40px;
 }
@@ -86,12 +86,12 @@ tr:hover {
 }
 
 .playlist-title {
-    font-size: 5rem;
+    font-size: 4rem;
     @media(max-width: 1200px) {
-        font-size: 4rem;
+        font-size: 3rem;
     }
     @media(max-width: 900px) {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 }
 
@@ -101,7 +101,7 @@ tr:hover {
 
 .controls {
     background-color: #282828;
-    min-height: 5.2rem;
+    min-height: 100px;
     min-width: 768px;
     display: flex;
     align-items: center;
@@ -157,11 +157,9 @@ tr:hover {
     flex-direction: column;
     padding-left: 24px;
     min-width: 210px;
-    min-height: 500px;
     background-color: black;
     color: white;
     padding-top: 24px;
-    height: 85vh;
 }
 
 .menu-logo {
@@ -192,7 +190,7 @@ tr:hover {
     }
 
     &:hover {
-        color: papayawhip;
+        color: ivory;
     }
 }
 
@@ -219,7 +217,7 @@ tr:hover {
     margin-bottom: 10px;
 
     &:hover{
-        color: papayawhip;
+        color: ivory;
     }
 }
 
@@ -243,7 +241,7 @@ tr:hover {
     &::-webkit-scrollbar-thumb {
         background-color:#b3b3b3;
         &:hover {
-            background: papayawhip;
+            background: ivory;
         }
     }
 }
@@ -262,3 +260,55 @@ tr:hover {
     margin-bottom: 10px;
 }
 
+.card-category {
+    padding-top: 40px;
+    width: 94%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    outline: 3px solid red;
+}
+
+.card-category-title {
+    margin: 0;
+}
+
+.card-category-items {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    background-color: #222121;
+    outline: black 1px;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: lighten($color:  #181818, $amount: 10);
+        cursor: pointer;
+    }
+}
+
+.card-image {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.card-text {
+    margin-left: 10px;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+.card-title {
+    font-size: 16px;
+    color: ivory;
+}
+
+.card-description { 
+    font-size: 14px;
+    color: #b3b3b3;
+}
