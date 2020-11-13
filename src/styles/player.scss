@@ -1,0 +1,263 @@
+.interface {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #181818;
+    max-width: 100vw;
+    max-height: 99vh;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 88vh;
+    color: papayawhip;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background:black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color:#b3b3b3;
+        &:hover {
+            background: papayawhip;
+        }
+    }
+}
+
+.art {
+    max-width: 200px;
+    outline: red 1px;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+.title-row{
+    display: flex;
+    align-items: flex-end;
+}
+
+.playlist-info {
+    margin-left: 40px;
+}
+
+.loading {
+    margin: 0 auto;
+    align-self: center;
+}
+
+.playing {
+    color:#1ED760;
+}
+
+.link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.track-table {
+    margin: 40px auto;
+    max-width: 95%;
+    overflow: auto;
+}
+
+tr:hover {
+    & td{
+        background-color: #282828;
+    }
+}
+
+.MuiTable-stickyHeader {
+    & td{
+        color: white;
+    }
+}
+
+.MuiTableCell-stickyHeader {
+    background-color: #181818 !important;
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+.playlist-title {
+    font-size: 5rem;
+    @media(max-width: 1200px) {
+        font-size: 4rem;
+    }
+    @media(max-width: 900px) {
+        font-size: 3rem;
+    }
+}
+
+.artist-link { 
+    cursor: pointer;
+}
+
+.controls {
+    background-color: #282828;
+    min-height: 5.2rem;
+    min-width: 768px;
+    display: flex;
+    align-items: center;
+    color: #b3b3b3;
+    justify-self: flex-end;
+
+    & .fa:hover {
+        color: white;
+    }
+}
+
+.mr-10 {
+    margin-right: 20px;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+    margin-left: 25px;
+    min-width: 32%;
+    justify-content: flex-start;
+}
+
+.mid-section {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    min-width: 32%;
+    justify-content: space-around;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    justify-self: flex-end;
+    min-width: 32%;
+    justify-content: flex-end;
+}
+
+.player-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.player-artist {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding-left: 24px;
+    min-width: 210px;
+    min-height: 500px;
+    background-color: black;
+    color: white;
+    padding-top: 24px;
+    height: 85vh;
+}
+
+.menu-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+
+    & i {
+        font-size: 3rem !important;
+    }
+}
+
+.menu-item {
+    color: #b3b3b3;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    width: 90%;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: .8rem;
+
+    & i {
+        margin-right: 15px;
+        font-size: 1.5rem;
+    }
+
+    &:hover {
+        color: papayawhip;
+    }
+}
+
+.selected {
+    background-color: #282828;
+    color: white;
+    padding-left: 10px;
+}
+
+.menu-playlist-title {
+    text-transform: uppercase;
+    font-size: .75rem;
+    font-weight: 700;
+    color: #b3b3b3;
+    letter-spacing: 1.2px;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+.menu-playlist-button {
+    display: flex;
+    align-items: center;
+    color: #b3b3b3;
+    margin-bottom: 10px;
+
+    &:hover{
+        color: papayawhip;
+    }
+}
+
+.menu-playlist {
+    color: #b3b3b3;
+    font-size: .85rem;
+    font-weight: 600;
+    line-height: 3;
+    width: 100%;
+    overflow: auto;
+    user-select: none;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background:black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color:#b3b3b3;
+        &:hover {
+            background: papayawhip;
+        }
+    }
+}
+
+.playlist {
+    line-height: 2;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.divider {
+    width: 80%;
+    color: #b3b3b3;
+    margin-bottom: 10px;
+}

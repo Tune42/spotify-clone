@@ -6,7 +6,6 @@ import spotifyWrapper from 'spotify-web-api-js';
 import Menu from '../components/player/menu/menu';
 import Controls from '../components/player/controls/controls';
 import Content from './content/content';
-import './player.scss';
 
 const API = new spotifyWrapper();
 
@@ -120,7 +119,7 @@ class Player extends React.Component {
                     <Controls 
                     API={API} 
                     playerState={this.state.playerState} 
-                    setPlaylist={this.changeContextURI} 
+                    changeContextURI={this.changeContextURI} 
                     />
                 </div>
             )

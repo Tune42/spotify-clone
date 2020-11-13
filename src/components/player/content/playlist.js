@@ -1,6 +1,5 @@
 import React from 'react';
-import './playlist.scss';
-import TrackTable from './track-table/tracktable';
+import TrackTable from './tracktable';
 
 const Playlist = ({image, type, name, description, tracks, playerState, API, contextURI, artistURI, changeContextURI}) => {
     let subtitle;

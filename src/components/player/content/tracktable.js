@@ -4,8 +4,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import './tracktable.scss';
-import TrackRow from './trackrow/trackrow';
+import TrackRow from './trackrow';
 
 const TrackTable = ({tracks, album, playerState, API, contextURI, changeContextURI}) => {
     return(

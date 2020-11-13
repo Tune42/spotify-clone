@@ -1,10 +1,9 @@
 import React from 'react';
-import './controls.scss';
 import Volume from '../controls/volume';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-const Controls = ({API, playerState, setPlaylist}) => {
+const Controls = ({API, playerState, changeContextURI}) => {
 
     const togglePlay = () => {
         if (playerState.paused) {
@@ -45,8 +44,8 @@ const Controls = ({API, playerState, setPlaylist}) => {
             <div className="left-section">
                 <img src={art} alt="Album Art" className='mr-10' />
                 <div className='mr-10'>
-                    <p onClick={() => setPlaylist(playerState.albumURI)}>{track}</p>
-                    <p style={{fontWeight: 400, fontSize: '14px'}}>{artist}</p>
+                    <p className='player-link' onClick={() => changeContextURI(playerState.albumURI)}>{track}</p>
+                    <p className='player-artist player-link' onClick={() => changeContextURI(playerState.artistURI)}>{artist}</p>
                 </div>
             </div>
             <div className="mid-section">
@@ -57,7 +56,7 @@ const Controls = ({API, playerState, setPlaylist}) => {
                 <i className="fa fa-repeat" style={{color: repeat}} onClick={toggleRepeat}></i>
             </div>
             <div className="right-section">
-                <i className="fa fa-list-ol mr-10" onClick={() => setPlaylist(playerState.context)}></i>
+                <i className="fa fa-list-ol mr-10" onClick={() => changeContextURI(playerState.context)}></i>
                 <Volume API={API} />
             </div>
         </div>

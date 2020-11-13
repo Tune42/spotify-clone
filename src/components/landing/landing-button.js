@@ -1,5 +1,4 @@
 import React from 'react';
-import './landing-button.scss';
 
 const LandingButton = () => {
     return(

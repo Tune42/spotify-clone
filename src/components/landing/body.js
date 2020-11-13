@@ -1,7 +1,6 @@
 import React from 'react';
-import './body.scss';
-import LandingButton from '../landing/landing-button/landing-button';
-import authLink from '../../../private';
+import LandingButton from './landing-button';
+import authLink from '../../private';
 
 const Body = () => {
     return(

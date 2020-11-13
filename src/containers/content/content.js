@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import './content.scss'
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Playlist from '../../components/player/content/playlist/playlist';
-import Artist from '../../components/player/content/artist/artist';
+import Playlist from '../../components/player/content/playlist';
+import Artist from '../../components/player/content/artist';
 
 const Content = ({API, contextURI, playerState, changeContextURI}) => {
     const [content, setContent] = useState(
@@ -50,12 +49,20 @@ const Content = ({API, contextURI, playerState, changeContextURI}) => {
                     )
                 }).catch(err => console.log(err));
             } else if (context[1] === 'artist') {
-                setContent(
-                    <Artist />
-                )
+                API.getArtist(context[2])
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+                API.getArtistAlbums(context[2], {limit: 50, include_groups: 'album'})
+                .then(res => {
+                    console.log(res);
+                    setContent(
+                        <Artist />
+                    )
+                }).catch(err => console.log(err));
             } else {
                 console.log(context);
             }
+            // document.querySelector('.')
         }
     }, [API, changeContextURI, contextURI, playerState]);
 

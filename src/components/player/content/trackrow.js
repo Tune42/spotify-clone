@@ -1,7 +1,6 @@
 import { TableRow, TableCell } from '@material-ui/core';
 import React, {useState, useEffect} from 'react';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
-import './trackrow.scss';
 
 const convertMS = (ms) => {
     const minutes = Math.floor(ms / 60000);

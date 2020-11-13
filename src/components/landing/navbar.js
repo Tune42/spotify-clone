@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import './navbar.scss';
-import authLink from '../../../private';
+import authLink from '../../private';
 
 const Navbar = ({setSidebar, sidebar}) => {
 

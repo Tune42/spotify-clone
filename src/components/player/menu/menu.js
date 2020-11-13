@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import './menu.scss';
 
 const Menu = ({API, setPlaylist}) => {
     const [playlists, setPlaylists] = useState(null)
