@@ -100,7 +100,9 @@ class Player extends React.Component {
             this.setState({
                 contextURI: newURI
             });
-            document.querySelector('.content-container').scrollTo(0, 0);
+            if (document.querySelector('content-container')) {
+                document.querySelector('.content-container').scrollTo(0, 0);
+            }
         }
     }
 
@@ -109,7 +111,11 @@ class Player extends React.Component {
             return(
                 <div className='interface'>
                     <div className='not-controls'>
-                        <Menu API={API} setPlaylist={this.changeContextURI} />
+                        <Menu 
+                        API={API} 
+                        changeContextURI={this.changeContextURI} 
+                        contextURI={this.state.contextURI}
+                        />
                         <Content 
                         API={API} 
                         contextURI={this.state.contextURI} 

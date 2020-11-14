@@ -28,8 +28,8 @@ const Artist = ({artist, API, changeContextURI}) => {
 
     let albums;
     if (data.albums) {
-        albums = data.albums.map(album => {
-            return <Card album={album} changeContextURI={changeContextURI} />;
+        albums = data.albums.map((album, index) => {
+            return <Card key={index + ' ' + album} album={album} changeContextURI={changeContextURI} />;
         })
     }
 

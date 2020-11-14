@@ -1,6 +1,6 @@
 .interface {
     background-color: #181818;
-    max-height: 99vh;
+    overflow: hidden;
 }
 
 .content-container{
@@ -200,6 +200,15 @@ tr:hover {
     padding-left: 10px;
 }
 
+.menu-link {
+    text-decoration: none;
+    color: #b3b3b3;
+
+    &:hover {
+        color: ivory;
+    }
+}
+
 .menu-playlist-title {
     text-transform: uppercase;
     font-size: .75rem;
@@ -320,3 +329,4 @@ tr:hover {
     font-size: 14px;
     color: #b3b3b3;
 }
+

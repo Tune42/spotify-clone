@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Playlist from '../../components/player/content/playlist';
 import Artist from '../../components/player/content/artist';
+import Home from '../../components/player/content/home';
+import Search from '../../components/player/content/search';
+import Library from '../../components/player/content/library';
 
 const Content = ({API, contextURI, playerState, changeContextURI}) => {
     const [content, setContent] = useState(
@@ -50,6 +53,26 @@ const Content = ({API, contextURI, playerState, changeContextURI}) => {
                 }).catch(err => console.log(err));
             } else if (context[1] === 'artist') {
                 setContent(<Artist artist={context[2]} API={API} changeContextURI={changeContextURI} />);
+            } else if (context[1] === 'custom') {
+                if (context[2] === 'home') {
+                    setContent(
+                    <Home 
+                    API={API} 
+                    changeContextURI={changeContextURI} 
+                    />);
+                } else if (context[2] === 'search') {
+                    setContent(
+                    <Search 
+                    API={API} 
+                    changeContextURI={changeContextURI}
+                    />);
+                } else if (context[2] === 'library') {
+                    setContent(
+                    <Library
+                    API={API} 
+                    changeContextURI={changeContextURI}
+                    />);
+                }
             } else {
                 console.log(context);
             }
