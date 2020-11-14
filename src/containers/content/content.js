@@ -49,7 +49,7 @@ const Content = ({API, contextURI, playerState, changeContextURI}) => {
                     )
                 }).catch(err => console.log(err));
             } else if (context[1] === 'artist') {
-                setContent(<Artist artist={context[2]} API={API} />);
+                setContent(<Artist artist={context[2]} API={API} changeContextURI={changeContextURI} />);
             } else {
                 console.log(context);
             }

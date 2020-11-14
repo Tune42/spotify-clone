@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from './card';
 
-const Artist = ({artist, API}) => {
+const Artist = ({artist, API, changeContextURI}) => {
     const [data, setData] = useState({
         image: '',
         name: '',
@@ -29,8 +29,7 @@ const Artist = ({artist, API}) => {
     let albums;
     if (data.albums) {
         albums = data.albums.map(album => {
-            console.log(album);
-            return <Card />;
+            return <Card album={album} changeContextURI={changeContextURI} />;
         })
     }
 

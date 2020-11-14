@@ -90,9 +90,9 @@ tr:hover {
     @media(max-width: 1200px) {
         font-size: 3rem;
     }
-    @media(max-width: 900px) {
-        font-size: 2rem;
-    }
+    // @media(max-width: 900px) {
+    //     font-size: 2rem;
+    // }
 }
 
 .artist-link { 
@@ -264,19 +264,19 @@ tr:hover {
     padding-top: 40px;
     width: 94%;
     margin: 0 auto;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    outline: 3px solid red;
 }
 
 .card-category-title {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .card-category-items {
     width: 100%;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .card {
@@ -285,6 +285,12 @@ tr:hover {
     background-color: #222121;
     outline: black 1px;
     border-radius: 3px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
     &:hover {
         background-color: lighten($color:  #181818, $amount: 10);
@@ -295,12 +301,14 @@ tr:hover {
 .card-image {
     width: 80%;
     margin: 0 auto;
+    display: block;
 }
 
 .card-text {
     margin-left: 10px;
     margin-top: 20px;
     font-weight: 400;
+    text-align: left;
 }
 
 .card-title {
