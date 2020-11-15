@@ -37,7 +37,7 @@ const Menu = ({API, changeContextURI, contextURI}) => {
             </div>
             <div className={context === 'library' ? 'menu-item selected' : 'menu-item'}
             onClick={() => changeContextURI('custom:custom:library')}>
-                <i className="fa fa-list"></i>Your Library
+                <i className="fa fa-list"></i>Your Artists
             </div>
             <div className='menu-playlist-title'>Web Links</div>
             <div className='menu-playlist-button'><i className="fa fa-plus mr-10"></i><a href='https://github.com/Tune42' className='menu-link'>Other Works</a></div>

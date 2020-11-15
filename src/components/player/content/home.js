@@ -11,7 +11,6 @@ const Home = ({API, changeContextURI}) => {
             async function fetchData() {
                 await API.getUserPlaylists()
                 .then(res => {
-                    console.log(res);
                     newData['playlists'] = res.items;
                 }).catch(err => console.log(err));
 

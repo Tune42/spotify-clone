@@ -4,15 +4,17 @@ const Card = ({album, changeContextURI}) => {
     let description;
     if (album.release_date) {
         description = <h5 className='card-description'>Released {album.release_date}</h5>;
+    } else if (album.genres) {
+        description = <h5 className="card-description">{album.genres[1]}, {album.genres[2]}</h5>
     } else {
         description = <h5 className='card-description'>{album.description}</h5>
     }
 
     let image;
     if (album.images.length > 1) {
-        image = <img  className='card-image' src={album.images[1].url} alt="playlist" />
+        image = <img  className='card-image' src={album.images[1].url} width="150px" height="150px" alt="playlist" />
     } else {
-        image = <img className='card-image' src={album.images[0].url} alt="playlist" />
+        image = <img className='card-image' src={album.images[0].url} width="150px" height="150px" alt="playlist" />
     }
 
     return(
