@@ -290,7 +290,7 @@ tr:hover {
 
 .card {
     width: 200px;
-    height: 300px;
+    height: 275px;
     background-color: #222121;
     outline: black 1px;
     border-radius: 3px;
@@ -299,6 +299,7 @@ tr:hover {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-around;
 
     &:hover {
@@ -308,25 +309,40 @@ tr:hover {
 }
 
 .card-image {
-    width: 80%;
     margin: 0 auto;
     display: block;
 }
 
 .card-text {
-    margin-left: 10px;
-    margin-top: 20px;
     font-weight: 400;
-    text-align: left;
+    overflow: hidden;
+    max-width: 175px;
+    max-height: 75px;
 }
 
 .card-title {
     font-size: 16px;
     color: ivory;
+    text-align: center;
+    text-justify: center;
+    overflow: hidden;
+    text-overflow: hidden;
 }
 
 .card-description { 
     font-size: 14px;
     color: #b3b3b3;
+    text-align: center;
+    text-justify: center;
+    overflow: hidden;
+    text-overflow: hidden;
 }
 
+.search {
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: 40px;
+    margin-top: 20px;
+    text-align: center;
+}

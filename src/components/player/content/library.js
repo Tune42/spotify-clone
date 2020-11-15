@@ -31,7 +31,7 @@ const Library = ({API, changeContextURI}) => {
         <div className="content-container">
             <div className="content-container">
                 <div className="card-category">
-                    <div className="card-category-title"><h2>Your Artists</h2></div>
+                    <div className="card-category-title"><h2>Your Top Artists</h2></div>
                     <div className='card-category-items'>{artists}</div>
                 </div>
             </div>
