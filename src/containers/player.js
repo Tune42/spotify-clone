@@ -75,7 +75,7 @@ class Player extends React.Component {
             
             // Ready
             player.addListener('ready', ({ device_id }) => {
-                console.log('Ready with Device ID', device_id);
+                // console.log('Ready with Device ID', device_id);
                 this.setState({
                     deviceID: device_id
                 });
@@ -102,9 +102,7 @@ class Player extends React.Component {
             this.setState({
                 contextURI: newURI
             });
-            if (document.querySelector('content-container')) {
-                document.querySelector('.content-container').scrollTo(0, 0);
-            }
+            document.querySelector('.content-container').scrollTo(0, 0);
         }
     }
 

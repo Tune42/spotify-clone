@@ -11,7 +11,6 @@ const Library = ({API, changeContextURI}) => {
             async function fetchData() {
                 await API.getMyTopArtists({limit: 50})
                 .then(res => {
-                    console.log(res);
                     newData['artists'] = res.items;
                 }).catch(err => console.log(err));
                 setData(newData);

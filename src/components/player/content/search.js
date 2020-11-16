@@ -9,7 +9,6 @@ const Search = ({API, changeContextURI}) => {
         const newData = {};
         await API.search(search, ['album', 'artist', 'playlist'], {market: 'us', limit: 20})
         .then(res => {
-            console.log(res);
             newData['artists'] = res.artists.items;
             newData['albums'] = res.albums.items;
             newData['playlists'] = res.playlists.items;
