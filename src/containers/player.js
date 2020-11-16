@@ -57,6 +57,8 @@ class Player extends React.Component {
                     shuffle: state.shuffle,
                     repeat: state.repeat_mode,
                     linkedFrom: currentTrack.linked_from_uri,
+                    position: state.position,
+                    duration: state.duration,
                 }
                 // if (this.state.playerState === null || this.state.playerState.track !== playerState.track || player) {}
                 this.setState({

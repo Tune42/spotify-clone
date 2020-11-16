@@ -3,7 +3,7 @@ import React from 'react';
 const Card = ({album, changeContextURI}) => {
     let description;
     if (album.release_date) {
-        description = <h5 className='card-description'>Released <br /> {album.release_date}</h5>;
+        description = <h5 className='card-description'>Released in {album.release_date.split('-')[0]}</h5>;
     } else if (album.genres) {
         description = <h5 className="card-description" style={{textTransform: 'uppercase'}}>{album.genres[1]}</h5>
     } else {

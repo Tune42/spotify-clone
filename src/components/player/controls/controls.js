@@ -1,7 +1,6 @@
 import React from 'react';
 import Volume from '../controls/volume';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
+import Seeker from './seeker';
 
 const Controls = ({API, playerState, changeContextURI}) => {
 
@@ -26,34 +25,38 @@ const Controls = ({API, playerState, changeContextURI}) => {
     }
 
     let playControl = 'fa fa-play';
-    let art = <CircularProgress />;
+    let art;
     let track = '';
     let artist = '';
     let shuffle = '';
     let repeat = '';
+
     if (playerState !== null) {
-        art = playerState.smallCover.url;
+        art = <img src={playerState.smallCover.url} alt="Album Art" className='mr-10' />;
         track = playerState.track;
         artist = playerState.artist;
         playerState.paused ? playControl = 'fa fa-play' : playControl = 'fa fa-pause';
-        playerState.shuffle ? shuffle = '#1ED760' : shuffle = ''
-        playerState.repeat === 2 ? repeat = '#1ED760' : repeat = ''
+        playerState.shuffle ? shuffle = '#1ED760' : shuffle = '';
+        playerState.repeat === 2 ? repeat = '#1ED760' : repeat = '';
     }
     return(
         <div className='controls'>
             <div className="left-section">
-                <img src={art} alt="Album Art" className='mr-10' />
+                {art}
                 <div className='mr-10'>
                     <p className='player-link' onClick={() => changeContextURI(playerState.albumURI)}>{track}</p>
                     <p className='player-artist player-link' onClick={() => changeContextURI(playerState.artistURI)}>{artist}</p>
                 </div>
             </div>
             <div className="mid-section">
-                <i className="fa fa-random" style={{color: shuffle}} onClick={toggleShuffle}></i>
-                <i className="fa fa-step-backward" onClick={API.skipToPrevious}></i>
-                <i className={playControl} onClick={togglePlay}></i>
-                <i className="fa fa-step-forward" onClick={API.skipToNext}></i>
-                <i className="fa fa-repeat" style={{color: repeat}} onClick={toggleRepeat}></i>
+                <div className="player-buttons">
+                    <i className="fa fa-random" style={{color: shuffle}} onClick={toggleShuffle}></i>
+                    <i className="fa fa-step-backward" onClick={API.skipToPrevious}></i>
+                    <i className={playControl} onClick={togglePlay}></i>
+                    <i className="fa fa-step-forward" onClick={API.skipToNext}></i>
+                    <i className="fa fa-repeat" style={{color: repeat}} onClick={toggleRepeat}></i>
+                </div>
+                <Seeker playerState={playerState} API={API} />
             </div>
             <div className="right-section">
                 <i className="fa fa-list-ol mr-10" onClick={() => changeContextURI(playerState.context)}></i>
