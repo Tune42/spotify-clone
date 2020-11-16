@@ -28,16 +28,21 @@ const Home = ({API, changeContextURI}) => {
     let savedAlbums;
     let playlists;
 
-    if (data !== null && data.savedAlbums) {
-        savedAlbums = data.savedAlbums.map((album, index) => {
-            return <Card key={index + ' ' + album.album.name} album={album.album} changeContextURI={changeContextURI} />;
-        })
-    }
-
-    if (data !== null && data.playlists) {
-        playlists = data.playlists.map((playlist, index) => {
-            return <Card key={index + ' ' + playlist.name} album={playlist} changeContextURI={changeContextURI} />;
-        })
+    if (data !== null) {
+        if (data.savedAlbums && data.savedAlbums.length > 0) {
+            savedAlbums = data.savedAlbums.map((album, index) => {
+                return <Card key={index + ' ' + album.album.name} album={album.album} changeContextURI={changeContextURI} />;
+            })
+        } else {
+            savedAlbums = <h2>Unable to retrieve saved albums for this account either due to an error or because you have not saved any.</h2>
+        }
+        if (data.playlists && data.playlists.length > 0) {
+            playlists = data.playlists.map((playlist, index) => {
+                return <Card key={index + ' ' + playlist.name} album={playlist} changeContextURI={changeContextURI} />;
+            })
+        } else {
+            playlists = <h2>Unable to retrieve playlists for this account either due to an error or because you have not saved any.</h2>
+        }
     }
 
     return(

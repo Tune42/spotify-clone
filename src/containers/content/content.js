@@ -5,11 +5,12 @@ import Artist from '../../components/player/content/artist';
 import Home from '../../components/player/content/home';
 import Search from '../../components/player/content/search';
 import Library from '../../components/player/content/library';
+import Error from '../../components/player/content/error';
 
 const Content = ({API, contextURI, playerState, changeContextURI}) => {
     const [content, setContent] = useState(
-        <div className='loading'>
-            <CircularProgress />
+        <div className='content-container'>
+            <div className="loading"><CircularProgress /></div>
         </div>
     );
 
@@ -75,7 +76,15 @@ const Content = ({API, contextURI, playerState, changeContextURI}) => {
                 }
             } else {
                 console.log(context);
+                setContent(<Error />);
             }
+        } else {
+            setContent(
+                <Search 
+                API={API} 
+                changeContextURI={changeContextURI}
+                />
+            )
         }
     }, [API, changeContextURI, contextURI, playerState]);
 

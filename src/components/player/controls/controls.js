@@ -2,7 +2,7 @@ import React from 'react';
 import Volume from '../controls/volume';
 import Seeker from './seeker';
 
-const Controls = ({API, playerState, changeContextURI}) => {
+const Controls = ({API, playerState, changeContextURI, disabled}) => {
 
     const togglePlay = () => {
         if (playerState.paused) {
@@ -39,6 +39,7 @@ const Controls = ({API, playerState, changeContextURI}) => {
         playerState.shuffle ? shuffle = '#1ED760' : shuffle = '';
         playerState.repeat === 2 ? repeat = '#1ED760' : repeat = '';
     }
+
     return(
         <div className='controls'>
             <div className="left-section">
@@ -63,7 +64,7 @@ const Controls = ({API, playerState, changeContextURI}) => {
                 <Volume API={API} />
             </div>
         </div>
-    )
+    )    
 }
 
 export default Controls;

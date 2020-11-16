@@ -15,10 +15,16 @@ const TrackRow = ({index, name, album, albumURI, duration, playerState, uri, API
     const [playing, setPlaying] = useState('');
 
     useEffect(() => {
-        if ((playerState.trackURI === uri || playerState.linkedFrom === uri) && !playerState.paused) {
-            setButton(<i className='fa fa-pause' style={{color: '#1ED760'}}></i>)
-            setLabel(<EqualizerIcon fontSize='inherit' htmlColor=' #1ED760' />);
-            setPlaying('playing');
+        if (playerState) {
+            if ((playerState.trackURI === uri || playerState.linkedFrom === uri) && !playerState.paused) {
+                setButton(<i className='fa fa-pause' style={{color: '#1ED760'}}></i>)
+                setLabel(<EqualizerIcon fontSize='inherit' htmlColor=' #1ED760' />);
+                setPlaying('playing');
+            } else {
+                setButton(<i className='fa fa-play'></i>);
+                setLabel(index + 1);
+                setPlaying('');
+            }
         } else {
             setButton(<i className='fa fa-play'></i>);
             setLabel(index + 1);
@@ -27,12 +33,14 @@ const TrackRow = ({index, name, album, albumURI, duration, playerState, uri, API
     }, [index, playerState, uri]);
 
     const toggle = () => {
-        if (playerState.paused || (playerState.trackURI !== uri && playerState.linkedFrom !== uri)) {
-            API.play({context_uri: contextURI, offset: {position: index}});
-            setButton(<i className='fa fa-pause'></i>)
-        } else {
-            API.pause();
-            setButton(<i className='fa fa-play'></i>);
+        if (playerState) {
+            if (playerState.paused || (playerState.trackURI !== uri && playerState.linkedFrom !== uri)) {
+                API.play({context_uri: contextURI, offset: {position: index}});
+                setButton(<i className='fa fa-pause'></i>)
+            } else {
+                API.pause();
+                setButton(<i className='fa fa-play'></i>);
+            }
         }
     }
 

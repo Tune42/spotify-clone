@@ -9,11 +9,17 @@ const Menu = ({API, changeContextURI, contextURI}) => {
             API.getUserPlaylists()
             .then(res => {
                 // console.log(res);
-                setPlaylists(res.items.map(playlist => {
-                    return <div key={'playlist ' + playlist.name} 
-                    className="playlist"
-                    onClick={() => changeContextURI(playlist.uri)}>{playlist.name}</div>
-                }))
+                if (res.items.length > 0) {
+                    setPlaylists(res.items.map(playlist => {
+                        return <div key={'playlist ' + playlist.name} 
+                        className="playlist"
+                        onClick={() => changeContextURI(playlist.uri)}>{playlist.name}</div>
+                    }))
+                } else {
+                    setPlaylists(
+                        <div key={'no playlist'} className="playlist">No saved playlists!</div>
+                    )
+                }
             })
             .catch(err => {
                 console.log(err)

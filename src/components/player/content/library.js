@@ -21,9 +21,13 @@ const Library = ({API, changeContextURI}) => {
 
     let artists;
     if (data !== null) {
-        artists = data['artists'].map((artist, index) => {
-            return <Card API={API} changeContextURI={changeContextURI} album={artist} />
-        })
+        if (data['artists'] && data.artists.length > 0) {
+            artists = data['artists'].map((artist, index) => {
+                return <Card key={artist + ' ' + index} API={API} changeContextURI={changeContextURI} album={artist} />
+            });
+        } else {
+            artists = <h2>Unable to retrieve artist data for this account either due to an error or because your account is too new.</h2>
+        }
     }
 
     return(

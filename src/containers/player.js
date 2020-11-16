@@ -22,6 +22,7 @@ class Player extends React.Component {
             token: hashParam['#access_token'],
             playerState: null,
             contextURI: null,
+            disabled: true,
         }
     }
 
@@ -65,11 +66,12 @@ class Player extends React.Component {
                     playerState: playerState
                 })
                 if (this.state.contextURI === null) {
-                    if (this.state.contextURI !== state.context.uri) {
-                        this.setState({
-                            contextURI: state.context.uri,
-                        })
-                    }
+                    // if (this.state.contextURI !== state.context.uri) {
+                        
+                    // }
+                    this.setState({
+                        contextURI: state.context.uri,
+                    })
                 }
             });
             
@@ -80,10 +82,17 @@ class Player extends React.Component {
                     deviceID: device_id
                 });
                 API.transferMyPlayback([device_id], {
-                    play: true
+                    play: true,
                 })
-                .then(res => console.log(res))
-                .catch(err => console.log(err))
+                .then(res => {
+                    console.log(res);
+                    this.setState({
+                        disabled: false 
+                    });
+                })
+                .catch(err => {
+                    console.log(err);
+                })
             });
             
             // Not Ready
@@ -98,15 +107,39 @@ class Player extends React.Component {
     }
 
     changeContextURI = (newURI) => {
-        if (newURI !== this.state.contextURI) {
+        if (newURI !== this.state.contextURI && newURI.split(':')[1] !== 'track') {
             this.setState({
                 contextURI: newURI
             });
-            document.querySelector('.content-container').scrollTo(0, 0);
+            if (!!document.querySelector('.content-container')) {
+                document.querySelector('.content-container').scrollTo(0, 0);
+            }
         }
     }
 
     render() {
+        let controls;
+        if (this.state.disabled) {
+            controls = (
+                <div className="controls">
+                    <div className="left-section"></div>
+                    <div className="mid-section">
+                        <h3>Spotify Premium is required for playback.</h3>
+                    </div>
+                    <div className="right-section"></div>
+                </div>
+            )
+        } else {
+            controls = (
+                <Controls 
+                API={API} 
+                playerState={this.state.playerState} 
+                changeContextURI={this.changeContextURI} 
+                disabled={this.state.disabled} 
+                />
+            )
+        }
+
         if (this.state.token !== undefined) {
             return(
                 <div className='interface'>
@@ -123,11 +156,7 @@ class Player extends React.Component {
                         changeContextURI={this.changeContextURI}
                         />
                     </div>
-                    <Controls 
-                    API={API} 
-                    playerState={this.state.playerState} 
-                    changeContextURI={this.changeContextURI} 
-                    />
+                    {controls}
                 </div>
             )
         } else {

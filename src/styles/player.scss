@@ -48,7 +48,9 @@
 }
 
 .loading {
-    margin: 0 auto;
+    margin-top: calc(50vh - 100px);
+    margin-left: auto;
+    margin-right: auto;
     align-self: center;
 }
 
