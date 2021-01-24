@@ -357,6 +357,14 @@ tr:hover {
     margin-left: 40px;
     margin-top: 20px;
     text-align: center;
+
+    &:active{
+        outline: none;
+    }
+
+    &:focus{
+        outline: none;
+    }
 }
 
 .fa-heart {
