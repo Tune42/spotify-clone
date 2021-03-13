@@ -16,6 +16,7 @@ Below is a mock example of what my private.js file looks like.
 
 ----------------------------------------------------------------------------
 
+````
 const authEndpoint = "https://accounts.spotify.com/authorize"
 const redirectUri = 'http://localhost:3000/player'
 const clientId = '######################' //Generated for you when you sign up at developer.spotify.com
@@ -42,3 +43,4 @@ const scopes = [
 const authLink = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
 
 export default authLink;
+````
